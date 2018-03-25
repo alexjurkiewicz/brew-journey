@@ -1,0 +1,15 @@
+<button
+  type="button"
+  *ngIf="playerStatus.equipment.boiler === 'none'"
+  (click)="purchaseEquipment()"
+  >
+Purchase Basic Homebrew Kit ($20)
+</button>
+
+<button
+  type="button"
+  [disabled]="!playerStatus.canBrew()"
+  (click)="brewBeer()"
+  >
+Brew Beer{{playerStatus.canBrew() ? '' : ' (need brewing kit)'}} ($7)
+</button>
