@@ -19,7 +19,19 @@ export class PlayerStatusService {
 
   canBrew(): boolean {
     return this.equipment.boiler !== 'none'
-      && this.equipment.fermenter !== 'none';
+      && this.equipment.fermenter !== 'none'
+      && this.money > 0;
+  }
+
+  cantBrewReasons(): string {
+    let reasons = []
+    if (this.money < 0) {
+      reasons.push("not enough money");
+    }
+    if (this.equipment.boiler === 'none' || this.equipment.fermenter === 'none') {
+      reasons.push("need brewing equipment");
+    }
+    return reasons.join(', ');
   }
 
   purchaseEquipment() {

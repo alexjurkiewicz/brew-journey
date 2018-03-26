@@ -4,6 +4,6 @@
   <li>Money: ${{playerStatus.money}}</li>
   <li>Skill: {{playerStatus.skill}}</li>
   <li>Equipment: <div [innerHTML]="playerStatus.equipment.toHTML()"></div></li>
-  <li>Brews: {{playerStatus.brews.length}}</li>
+  <li>Brews ({{playerStatus.brews.length}}): {{playerStatus.brews.join(', ')}}</li>
 </ul>
 </div>

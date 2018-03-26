@@ -11,5 +11,5 @@ Purchase Basic Homebrew Kit ($20)
   [disabled]="!playerStatus.canBrew()"
   (click)="brewBeer()"
   >
-Brew Beer{{playerStatus.canBrew() ? '' : ' (need brewing kit)'}} ($7)
+Brew Beer{{playerStatus.canBrew() ? '' : ' (' + playerStatus.cantBrewReasons() + ')'}} ($7)
 </button>

@@ -9,7 +9,7 @@ export class MessageBoxService {
   }
 
   add(message: string): void {
-    this.messages.push(message);
+    this.messages.unshift(message);
   }
 
 }
