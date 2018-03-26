@@ -11,9 +11,5 @@ import { PlayerStatusService } from '../player-status.service';
 })
 export class StatusBarComponent implements OnInit {
   constructor(public playerStatus: PlayerStatusService) { }
-
-  ngOnInit() {
-
-  }
-
+  ngOnInit() {}
 }
