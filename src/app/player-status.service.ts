@@ -1,35 +1,40 @@
 import { Injectable } from '@angular/core';
 
-import { Equipment } from "./equipment";
-import { Brew } from "./brew";
+import { Equipment } from './equipment';
+import { Brew } from './brew';
+import { Beer } from './beer';
 
 @Injectable()
 export class PlayerStatusService {
-  money: number;
-  skill: number;
-  equipment: Equipment;
-  brews: Array<Brew>;
+  public money: number;
+  public skill: number;
+  public equipment: Equipment;
+  public brews: Array<Brew>;
 
   constructor() {
     this.money = 100;
-    this.skill = 1
+    this.skill = 1;
     this.equipment = new Equipment();
     this.brews = [];
   }
 
-  canBrew(): boolean {
+  canBrew(beer: Beer): boolean {
     return this.equipment.boiler !== 'none'
       && this.equipment.fermenter !== 'none'
-      && this.money > 0;
+      && this.money >= beer.cost
+      && this.skill >= beer.requiredSkillLevel;
   }
 
-  cantBrewReasons(): string {
-    let reasons = []
-    if (this.money < 0) {
-      reasons.push("not enough money");
+  cantBrewReasons(beer: Beer): string {
+    const reasons = [];
+    if (beer.cost > this.money) {
+      reasons.push('not enough money');
     }
     if (this.equipment.boiler === 'none' || this.equipment.fermenter === 'none') {
-      reasons.push("need brewing equipment");
+      reasons.push('need brewing equipment');
+    }
+    if (this.skill < beer.requiredSkillLevel) {
+      reasons.push(`need ${beer.requiredSkillLevel} skill`);
     }
     return reasons.join(', ');
   }

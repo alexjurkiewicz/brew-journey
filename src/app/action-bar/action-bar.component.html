@@ -7,9 +7,13 @@ Purchase Basic Homebrew Kit ($20)
 </button>
 
 <button
+  *ngFor="let beer of beerData.beers"
   type="button"
-  [disabled]="!playerStatus.canBrew()"
-  (click)="brewBeer()"
+  [disabled]="!playerStatus.canBrew(beer)"
+  (click)="brew(beer)"
   >
-Brew Beer{{playerStatus.canBrew() ? '' : ' (' + playerStatus.cantBrewReasons() + ')'}} ($7)
+Brew {{beer.name}}
+{{playerStatus.canBrew(beer) ? '' : ' (' + playerStatus.cantBrewReasons(beer) + ')'}}
+ (${{beer.cost}})
+ (+{{beer.experience}} skill)
 </button>

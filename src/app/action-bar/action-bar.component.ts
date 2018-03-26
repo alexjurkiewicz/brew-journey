@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { PlayerStatusService } from '../player-status.service';
-import { BrewerService } from '../brewer.service'
+import { BrewerService } from '../brewer.service';
+import { BeerDataService } from '../beer-data.service';
+import { Beer } from '../beer';
 
 @Component({
   selector: 'app-action-bar',
@@ -13,6 +15,7 @@ export class ActionBarComponent implements OnInit {
   constructor(
     public playerStatus: PlayerStatusService,
     public brewer: BrewerService,
+    public beerData: BeerDataService,
   ) {
   }
 
@@ -23,8 +26,8 @@ export class ActionBarComponent implements OnInit {
     this.playerStatus.purchaseEquipment();
   }
 
-  brewBeer() {
-    this.brewer.brew();
+  brew(beer: Beer) {
+    this.brewer.brew(beer);
   }
 
 }
