@@ -17,7 +17,7 @@ export class BrewerService {
 
   brew(beer: Beer) {
     this.messages.add(`Brewing a ${beer.name} beer...`);
-    const brew = new Brew(beer, 10);
+    const brew = new Brew(beer, 10, beer.cost);
     this.status.money -= beer.cost;
     this.status.skill += beer.experience;
     this.status.brews.push(brew);

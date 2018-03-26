@@ -1,13 +1,13 @@
 <div id="statusbar">
 <p>Status:</p>
 <ul>
-  <li>Money: ${{playerStatus.money}}</li>
+  <li>Money: {{playerStatus.money | currency}}</li>
   <li>Skill: {{playerStatus.skill}}</li>
   <li>Equipment: <div [innerHTML]="playerStatus.equipment.toHTML()"></div></li>
   <li>Brews ({{playerStatus.brews.length}})
     <ul>
       <li *ngFor="let brew of playerStatus.brews">
-        <button (click)="sellBrew(brew)">{{brew}}</button>
+        <button (click)="progressBrew(brew)">{{brew}}</button>
       </li>
     </ul>
   </li>
