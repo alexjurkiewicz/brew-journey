@@ -18,15 +18,16 @@ export class PackagingService {
   ) { }
 
   package(brew: Brew): void {
-    const type = this.packagingData.packages[0];
-    const items =  Math.floor(brew.amount / type.sizePerPackage); // any extra is discarded
-    const cost = type.costPerPackage * items;
+    const packaging = this.packagingData.packages[0];
+    const items =  Math.floor(brew.amount / packaging.sizePerPackage); // any extra is discarded
+    const cost = packaging.costPerPackage * items;
 
     this.playerStatus.money = this.playerStatus.money - cost;
     this.messageBoxService.add(
-      `We packaged the ${brew.beer.name} into ${items} ${type.name}
+      `Packaged the ${brew.beer.name} into ${items} ${packaging.name}
       which cost ${this.currencyPipe.transform(cost)}.`);
     brew.status = BrewStatus.Packaged;
+    brew.packaging = packaging;
   }
 
 }

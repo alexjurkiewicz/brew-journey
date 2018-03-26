@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Equipment } from './equipment';
 import { Brew } from './brew';
 import { Beer } from './beer';
+import { MessageBoxService } from './message-box.service';
 
 @Injectable()
 export class PlayerStatusService {
@@ -11,7 +12,9 @@ export class PlayerStatusService {
   public equipment: Equipment;
   public brews: Array<Brew>;
 
-  constructor() {
+  constructor(
+    private messageBox: MessageBoxService,
+  ) {
     this.money = 100;
     this.skill = 1;
     this.equipment = new Equipment();
@@ -43,6 +46,7 @@ export class PlayerStatusService {
     this.equipment.boiler = 'All-in-one homebrew kit';
     this.equipment.fermenter = 'All-in-one homebrew kit';
     this.money -= 20;
+    this.messageBox.add('Purchased an all-in-one homebrew kit for $20');
   }
 
 }

@@ -17,6 +17,7 @@ function assertUnreachable(x: never): never {
   styleUrls: ['./status-bar.component.css']
 })
 export class StatusBarComponent implements OnInit {
+  BrewStatus = BrewStatus;
   constructor(
     public playerStatus: PlayerStatusService,
     public packaging: PackagingService,
@@ -29,7 +30,6 @@ export class StatusBarComponent implements OnInit {
     switch (brew.status) {
       case BrewStatus.Brewed:
         this.packaging.package(brew);
-        console.log(brew);
         return;
       case BrewStatus.Packaged:
         this.selling.sell(brew);

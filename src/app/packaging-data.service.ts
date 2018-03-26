@@ -6,7 +6,7 @@ import { Packaging } from './packaging';
 export class PackagingDataService {
 
   packages: Array<Packaging> = [
-    new Packaging('hand-sealed bottles', 1.5, 0.375, 1.45),
+    new Packaging('hand-sealed bottles', 1.5, 0.375, 1.15),
     new Packaging('full growlers', 1.3, 2, 4),
   ];
 

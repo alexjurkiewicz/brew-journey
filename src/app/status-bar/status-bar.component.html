@@ -7,7 +7,11 @@
   <li>Brews ({{playerStatus.brews.length}})
     <ul>
       <li *ngFor="let brew of playerStatus.brews">
-        <button (click)="progressBrew(brew)">{{brew}}</button>
+        <button
+        [disabled]="brew.status === BrewStatus.Sold"
+        (click)="progressBrew(brew)"
+        >
+        {{brew.beer.name}} (quality {{brew.quality}}) ({{brew.amount}}L) ({{brew.status}})</button>
       </li>
     </ul>
   </li>
