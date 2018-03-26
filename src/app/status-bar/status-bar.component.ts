@@ -8,7 +8,7 @@ import { PackagingService } from '../packaging.service';
 import { SellingService } from '../selling.service';
 
 function assertUnreachable(x: never): never {
-  throw new Error('Can\'t get here!');
+  throw new Error(`Can't get here! (${x})`);
 }
 
 @Component({
