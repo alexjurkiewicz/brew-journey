@@ -11,8 +11,8 @@ import { BrewerService } from '../brewer.service'
 export class ActionBarComponent implements OnInit {
 
   constructor(
-    private playerStatus: PlayerStatusService,
-    private brewer: BrewerService,
+    public playerStatus: PlayerStatusService,
+    public brewer: BrewerService,
   ) {
   }
 

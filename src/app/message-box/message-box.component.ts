@@ -8,7 +8,7 @@ import { MessageBoxService } from '../message-box.service';
   styleUrls: ['./message-box.component.css']
 })
 export class MessageBoxComponent implements OnInit {
-  constructor(private messages: MessageBoxService) {}
+  constructor(public messages: MessageBoxService) {}
 
   ngOnInit() {
   }

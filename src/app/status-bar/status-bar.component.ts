@@ -10,7 +10,7 @@ import { PlayerStatusService } from '../player-status.service';
   styleUrls: ['./status-bar.component.css']
 })
 export class StatusBarComponent implements OnInit {
-  constructor(private playerStatus: PlayerStatusService) { }
+  constructor(public playerStatus: PlayerStatusService) { }
 
   ngOnInit() {
 
