@@ -1,10 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { CurrencyPipe } from '@angular/common';
-
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { StatusBarComponent } from './status-bar/status-bar.component';
@@ -28,8 +24,6 @@ import { SellingService } from './selling.service';
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
-    MatDialogModule
   ],
   providers: [
     PlayerStatusService,
