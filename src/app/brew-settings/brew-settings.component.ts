@@ -86,9 +86,5 @@ export class BrewSettingsComponent implements OnInit {
     const maltAmounts = malts.map((malt) => this.maltAmounts.get(malt));
     const hops = this.activeHops;
     const hopAmounts = hops.map((hop) => this.hopAmounts.get(hop));
-    console.log(malts);
-    console.log(maltAmounts);
-    console.log(hops);
-    console.log(hopAmounts);
   }
 }
