@@ -1,0 +1,36 @@
+<p><b>New Brew</b></p>
+<div>
+  Malts:
+  <mat-button-toggle-group multiple>
+    <mat-button-toggle *ngFor="let malt of malts" (change)="toggleMalt($event, malt)">
+      {{malt.name}}
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+  <div *ngFor="let malt of this.activeMalts">
+    {{malt.name}} intensity: 
+    <mat-slider
+      [ngModel]="maltAmounts.get(malt)"
+      (ngModelChange)="setMaltAmount(malt, $event)">
+    </mat-slider>
+  </div>
+</div>
+
+<div>
+    Hops:
+    <mat-button-toggle-group multiple>
+      <mat-button-toggle *ngFor="let hop of hops" (change)="toggleHop($event, hop)">
+        {{hop.name}}
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+    <div *ngFor="let hop of this.activeHops">
+      {{hop.name}} intensity: 
+      <mat-slider
+        [ngModel]="hopAmounts.get(hop)"
+        (ngModelChange)="setHopAmount(hop, $event)">
+      </mat-slider>
+    </div>
+  </div>
+
+  <div>
+      <button mat-raised-button (click)="brewBeer()">Brew Beer</button>
+  </div>
